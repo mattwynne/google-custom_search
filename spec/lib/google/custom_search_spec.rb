@@ -63,7 +63,7 @@ module Google
       :json => {
         :service_type => CustomSearch::JSON::Service,
         :cref => 'https://raw.github.com/mattwynne/google-custom_search/master/spec/fixtures/json_api_annotations.xml',
-        :key => 'AIzaSyA-AayUZh6S5mGMmja3pt2gfpsncLiwqN8' 
+        :key => 'AIzaSyA-AayUZh6S5mGMmja3pt2gfpsncLiwqN8' # Please don't abuse this key.
       },
       :xml => {
         :service_type => CustomSearch::XML::Service,
