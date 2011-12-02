@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GoogleCustomizations>
+  <CustomSearchEngine>
+    <Title />
+    <Description />
+    <Context>
+      <BackgroundLabels>
+        <Label name="included" mode="FILTER" />
+      </BackgroundLabels>
+    </Context>
+    <LookAndFeel nonprofit="false" />
+  </CustomSearchEngine>
+
+  <Annotations>
+    <Annotation about="www.mcht.nhs.uk/*">
+      <Label name="included"/>
+    </Annotation>
+  </Annotations>
+
+</GoogleCustomizations>
