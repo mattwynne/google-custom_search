@@ -3,31 +3,22 @@ module Google
     class Config
       attr_accessor :path
       attr_accessor :environment
-      attr_writer   :cref
-      attr_writer   :cse_id
-
-      def key
-        read('key')
-      end
-
-      def cse_id
-        @cse_id || read('cse_id')
-      end
-    
-      def cref
-        @cref || read('cref')
+      
+      [:key, :cx, :cse_id, :cref, :service].each do |key|
+        attr_writer key
+        define_method(key) do
+          instance_variable_get("@#{key}".to_sym) || read(key)
+        end
       end
       
       def service_type
-        eval("#{config.service.upcase}::Service")
-      rescue NameError => error
-        raise ConfigurationError, "Please set the configuration of 'service' to either json or xml: #{error}"
+        eval("#{self.service.upcase}::Service")
       end
     
     private
   
       def read(key)
-        env_config[key] || raise("Key '#{key}' was not found in your config file #{path}. Alternatives: #{env_config.keys.join(',')}")
+        env_config[key.to_s] || raise("Key '#{key}' was not found in your config file #{path}. Alternatives: #{env_config.keys.join(',')}")
       end
       
       def env_config
