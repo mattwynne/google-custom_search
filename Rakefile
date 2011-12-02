@@ -1,4 +1,6 @@
+require 'bundler'
+Bundler::GemHelper.install_tasks
+
 task :default do
-  ENV['HIT_THE_WEB'] = '1'
   system 'rspec spec'
 end
