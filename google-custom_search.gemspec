@@ -11,7 +11,9 @@ spec = Gem::Specification.new do |s|
   s.homepage = "https://github.com/mattwynne/gooogle-custom_search"
 
   s.add_dependency 'rest-client', '~> 1.6'
+  s.add_dependency 'nokogiri', '~> 1.5'
 
   s.add_development_dependency 'rspec', '2.7'
   s.add_development_dependency 'webmock', '1.7'
+  s.add_development_dependency 'guard-rspec'
 end

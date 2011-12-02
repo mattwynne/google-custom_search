@@ -3,19 +3,25 @@ module Google
     class Config
       attr_accessor :path
       attr_accessor :environment
-      attr_writer   :annotations_url
+      attr_writer   :cref
       attr_writer   :cse_id
 
       def key
-        read('api_key')
+        read('key')
       end
 
       def cse_id
         @cse_id || read('cse_id')
       end
     
-      def annotations_url
-        @annotations_url || read('annotations_url')
+      def cref
+        @cref || read('cref')
+      end
+      
+      def service_type
+        eval("#{config.service.upcase}::Service")
+      rescue NameError => error
+        raise ConfigurationError, "Please set the configuration of 'service' to either json or xml: #{error}"
       end
     
     private
